@@ -17,7 +17,6 @@ spec:
         name: bitnami
         namespace: flux-system
 
-  #  THIS IS WHAT WAS MISSING
   upgrade:
     remediation:
       retries: 3
@@ -33,7 +32,7 @@ spec:
     image:
       registry: docker.io
       repository: bitnami/nginx
-      tag: 1.25.4-debian-11-r6   #  confirmed to exist
+      tag: 1.25.4   #  VALID AND STABLE
 
     service:
-      type: NodePort            #  required for Minikube
+      type: NodePort
