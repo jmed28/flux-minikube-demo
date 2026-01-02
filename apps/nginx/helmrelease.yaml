@@ -5,7 +5,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-
   targetNamespace: default
   releaseName: nginx
 
@@ -21,13 +20,11 @@ spec:
   values:
     replicaCount: 1
 
-    service:
-      type: NodePort
-
     image:
       registry: docker.io
       repository: bitnami/nginx
-      tag: 1.25.4-debian-11-r0
+      tag: 1.25.4-debian-12-r6   # EXISTS
 
-    volumePermissions:
-      enabled: false
+    service:
+      type: NodePort            # required for Minikube
+
