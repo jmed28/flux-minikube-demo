@@ -1,18 +1,22 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: nginx
   namespace: flux-system
 spec:
   interval: 1m
+
   targetNamespace: default
   releaseName: nginx
+
   chart:
     spec:
-      chart: ./apps/nginx/chart
+      chart: nginx
+      version: "15.x"
       sourceRef:
-        kind: GitRepository
-        name: flux-system
+        kind: HelmRepository
+        name: bitnami
         namespace: flux-system
+
   values:
-    replicaCount: 7
+    replicaCount: 5
