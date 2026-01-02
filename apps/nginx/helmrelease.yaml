@@ -18,5 +18,5 @@ spec:
         name: bitnami
         namespace: flux-system
 
-  values:
-    replicaCount: 5
+  valuesFiles:
+    - values.yaml
