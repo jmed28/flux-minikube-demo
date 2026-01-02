@@ -19,6 +19,4 @@ spec:
         namespace: flux-system
 
   values:
-    replicaCount: 5
-    service:
-      type: NodePort
+    replicaCount: 1
