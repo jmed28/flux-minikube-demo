@@ -15,4 +15,4 @@ spec:
         name: flux-system
         namespace: flux-system
   values:
-    replicaCount: 3
+    replicaCount: 7
