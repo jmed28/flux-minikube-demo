@@ -18,5 +18,7 @@ spec:
         name: bitnami
         namespace: flux-system
 
-  valuesFiles:
-    - values.yaml
+  values:
+    replicaCount: 5
+    service:
+      type: NodePort
