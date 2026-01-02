@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: nginx
-      version: 15.14.2
+      version: "15.15.x"
       sourceRef:
         kind: HelmRepository
         name: bitnami
