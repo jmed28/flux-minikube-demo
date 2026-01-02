@@ -1,0 +1,15 @@
+replicaCount: 5
+
+image:
+  registry: docker.io
+  repository: bitnami/nginx
+  tag: 1.25.4-debian-11-r0
+
+# IMPORTANT for Minikube:
+# Prevent Helm from waiting forever for a LoadBalancer IP
+service:
+  type: NodePort
+
+# Disable init container that often fails on Minikube
+volumePermissions:
+  enabled: false

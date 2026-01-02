@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: flux-system
+spec:
+  interval: 1m
+  targetNamespace: default
+  releaseName: nginx
+
+  chart:
+    spec:
+      chart: nginx
+      version: 15.14.2
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+
+  values:
+    replicaCount: 1
+
+    image:
+      registry: docker.io
+      repository: bitnami/nginx
+      tag: 1.25.4-debian-12-r6   # EXISTS
+
+    service:
+      type: NodePort            # required for Minikube
+
