@@ -28,11 +28,6 @@ spec:
 
   values:
     replicaCount: 1
-
-    image:
-      registry: docker.io
-      repository: bitnami/nginx
-      tag: 1.25.4   #  VALID AND STABLE
-
     service:
       type: NodePort
+
