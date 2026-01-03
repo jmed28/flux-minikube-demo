@@ -1,0 +1,33 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: apache
+  namespace: flux-system
+spec:
+  interval: 1m
+  targetNamespace: default
+  releaseName: apache
+
+  chart:
+    spec:
+      chart: apache
+      version: "10.x"
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+
+  install:
+    remediation:
+      retries: 3
+
+  upgrade:
+    remediation:
+      retries: 3
+      strategy: uninstall
+
+  values:
+    replicaCount: 1
+
+    service:
+      type: NodePort   # required for Minikube
