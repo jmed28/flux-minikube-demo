@@ -27,7 +27,7 @@ spec:
       strategy: uninstall
 
   values:
-    replicaCount: 3
+    replicaCount: 7
 
     service:
       type: NodePort   # required for Minikube
